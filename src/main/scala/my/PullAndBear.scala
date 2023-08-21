@@ -12,4 +12,4 @@ object PullAndBear:
   lazy val streamed: Stream[Pure, Actor] = echoed.stream
   val tomHollandActorPull: Pull[Pure, Actor, Unit] = Pull.output1(tomHolland)
   val thaps: Stream[Pure, Actor] = tomHollandActorPull.stream
-  val spdmActPull: Pull[F, Actor, Unit] = Pull.output1(tomHolland) >> Pull.output1(tobeyMaguire) >> Pull.output1(andrewGarfield)
+  val spdmActPull: Pull[Pure, Actor, Unit] = Pull.output1(tomHolland) >> Pull.output1(tobeyMaguire) >> Pull.output1(andrewGarfield)
