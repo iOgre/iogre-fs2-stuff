@@ -6,5 +6,5 @@ object Lifted:
 
   import my.Initial.*
 
-  val liftedJLActors = jlActors.covary[IO]
-  val liftedAva = avengersActors.covary[IO]
+  val liftedJLActors: fs2.Stream[IO, Model.Actor] = jlActors.covary[IO]
+  val liftedAva: fs2.Stream[IO, Model.Actor] = avengersActors.covary[IO]

@@ -9,6 +9,7 @@ import my.Model.Actor
 import scala.concurrent.duration.*
 
 object ConsumerProducer:
+  private val queue: IO[Queue[IO, Actor]] = Queue.bounded[IO, Actor](10)
   val concurrentlyStreams: Stream[IO, Unit] = Stream.eval(queue).flatMap { q =>
     val producer: Stream[IO, Unit] =
       liftedJLActors
@@ -24,4 +25,4 @@ object ConsumerProducer:
     producer.concurrently(consumer)
 
   }
-  private val queue: IO[Queue[IO, Actor]] = Queue.bounded[IO, Actor](10)
+
