@@ -25,4 +25,3 @@ object ConsumerProducer:
     producer.concurrently(consumer)
 
   }
-
